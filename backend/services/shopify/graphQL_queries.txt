@@ -1,0 +1,32 @@
+{
+    discountCodeCount
+}
+
+{
+	products (first: 3 query: "title:vape i" ) {
+	  edges {
+	    node {
+	      id
+        title
+	    }
+	  }
+	}
+}
+
+
+{
+  priceRules (first: 100) {
+    edges {
+      node {
+        id
+        title
+        target
+        status
+        usageLimit
+        oncePerCustomer
+        createdAt
+        discountCodesCount
+      }
+    }
+  }
+}

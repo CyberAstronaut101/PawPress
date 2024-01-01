@@ -1,0 +1,362 @@
+[
+  {
+    "mealName": "Chicken Tikka Masala",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Roast beef with mashed potatoes and gravy",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Grilled steak with baked potatoes and salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Beef Tacos",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Fish Tacos",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Beef Fajitas",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Beef Burritos",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Quesadillas",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Gumbo",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Caesar Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Caesar wraps",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Lasagna",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Fettuccine Alfredo",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Pepperoni Pizza",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Margherita Pizza",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Mac and Cheese",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Baked Ziti",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Manicotti",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Spaghetti and Meatballs",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Tortellini",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Pad Thai",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Taco Soup",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Minestrone",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Potato Soup",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "White Chicken Chili",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Clam Chowder",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Tomato Bisque",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Tortilla Soup",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Cheeseburger Soup",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "French Onion Soup",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Black Bean Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "BBQ Chick Sandwiches",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Grilled Cheese",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Baked Italian Sandwiches",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "BLT",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Egg Roll Bowl",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Grilled Chicken Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Cafe Rio Pork Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Club Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Nuts and Berries Salad",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Kebabs",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Grilled Foil Packets",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Teriyaki Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Honey Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Hawaiian Pork Chops",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Grilled Pizza",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Skirt Steak",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Sausage and Peppers",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken and rice",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Pulled BBQ Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Pot Roast",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Ribs",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Shepherds Pie",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Calzones",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Enchiladas",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Stuffed Green Peppers",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Fried Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Wings",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Cheesy Bacon Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Dijon Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken Fingers",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chicken and Broccoli Casserole",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Orange Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Cilantro Lime Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Lemon Chicken",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Chimichangas",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Meatload",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Meatball Subs",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Stuffed Pork Chops",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Beef and Broccoli",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Salmon",
+    "verified": true,
+    "public": true
+  },
+  {
+    "mealName": "Crab Cakes",
+    "verified": true,
+    "public": true
+  }
+]

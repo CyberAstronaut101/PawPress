@@ -1,0 +1,30 @@
+Breakfast
+Lunch
+Dinner
+Appetizers
+Snacks
+Soups
+Salads
+Sandwiches
+Burgers
+Tacos
+Wraps
+Stir-fries
+Pasta dishes
+Rice dishes
+Noodle dishes
+Casseroles
+Grains
+Legumes
+Beans
+Tofu
+Tempeh
+Seitan
+Plant-based
+Poultry
+Meat
+Seafood
+Sushi
+Ramen
+Pho
+Nachos
