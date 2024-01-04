@@ -6,7 +6,7 @@
         "ci": "yarn install --frozen-lockfile",
         "start": "pm2 start ecosystem-prod.config.json --no-daemon",
         "dev:prod": "cross-env NODE_ENV=production nodemon server.js",
-        "dev": "cross-env NODE_ENV=development nodemon -L server.js",
+        "dev": "cross-env NODE_ENV=development nodemon server.js",
         "format:check": "prettier --check .",
         "format:write": "prettier --write .",
         "lint:check": "eslint .",

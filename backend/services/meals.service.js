@@ -4,7 +4,7 @@ const ApiError = require('../utils/ApiError');
 const { Recipe } = require('../models');
 const httpStatus = require('http-status');
 const { default: mongoose } = require('mongoose');
-const Meal = require('../models/meal.model');
+const Meal = require('../models/archive/meal.model');
 
 
 /* ==================================================

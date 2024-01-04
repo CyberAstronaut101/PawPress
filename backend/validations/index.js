@@ -8,3 +8,5 @@ module.exports.targetCollectionValidation = require('./target-collection.validat
 module.exports.generalValidators = require('./general_validators.validation')
 
 module.exports.recipeValidators = require('./recipe.validation')
+
+module.exports.controlNodeValidation = require('./control_node.validation')

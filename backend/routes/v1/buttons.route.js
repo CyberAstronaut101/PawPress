@@ -9,5 +9,7 @@ const buttonController = require('../../controllers/button.controller')
 router.route('/')
     .get(buttonController.getButtons)
 
+router.route('/pressed/')
+    .post(buttonController.pressButton)
 
 module.exports = router

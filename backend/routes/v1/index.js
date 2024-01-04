@@ -5,12 +5,17 @@ const router = express.Router()
 // # Routes
 const docsRoute = require('./docs.route')
 const buttonsRoute = require('./buttons.route')
+const nodesRoute = require('./control_nodes.route')
 
 // Default routes loaded in all enviornments
 const defaultRoutes = [
     {
         path: '/buttons',
         route: buttonsRoute
+    },
+    {
+        path: '/controlNodes',
+        route: nodesRoute
     }
 ]
 

@@ -17,33 +17,22 @@
 				<strong class="text-xl uppercase">WoofWare</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="/"
-				>
-					Dashboard
-				</a>
+				<a class="btn btn-sm variant-ghost-surface" href="/"> Dashboard </a>
 
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="/button-management"
-				>
+				<a class="btn btn-sm variant-ghost-surface" href="/button-management">
 					Button Management
 				</a>
 
-								<a
-					class="btn btn-sm variant-ghost-surface"
-					href="/history"
-				>
-					History
+				<a class="btn btn-sm variant-ghost-surface" href="/control-node">
+					Control Node Management
 				</a>
-				
+
+				<a class="btn btn-sm variant-ghost-surface" href="/history"> History </a>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
 	<!-- Page Route Content -->
-	<div class="max-xl flex justify-center">
+	<div id="main-wrapper" class="max-xl p-5">
 		<slot />
-
 	</div>
 </AppShell>
