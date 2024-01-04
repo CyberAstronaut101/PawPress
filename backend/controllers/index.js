@@ -1,0 +1,1 @@
+module.exports.nodeController = require('./control_node.controller')
