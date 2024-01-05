@@ -36,6 +36,10 @@ app.use((req, res, next) => {
 app.use(passport.initialize())
 passport.use('jwt', jwtStrategy) // uses the User collection
 
+
+// Setup Static directory for serving media
+app.use('/media', express.static('media'))
+
 /*--------  Endpoints  --------*/
 
 // Use v1 API Routes
