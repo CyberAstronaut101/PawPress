@@ -77,11 +77,37 @@ const getButtonByControlNodeAndButtonNumber = async (controlNodeId, buttonNumber
     return Button.findOne({ control_node: controlNodeId, button_number: buttonNumber })
 }
 
+const getAllControlNodeButtons = async (controlNodeId) => {
+    console.log('ButtonService::getAllControlNodeButtons(' + controlNodeId + ')')
+    return Button.find({ control_node: controlNodeId })
+}
+
+/**
+ * 
+ * @param {ObjectID} controlNodeId _id of the controlNode of the buttons to create
+ * @param {*} numButtons number of buttons to create
+ * @returns Button[] array of buttons created
+ */
 const createControlNodeButtons = async (controlNodeId, numButtons) => {
+
+    // ! This function is only called from the adoption process for parent control nodes
+    // ! Adjust this to contain general logic for creating default values for remainder of customizable fields
+
+    // Last 4 characters of the controlNodeId
+    let controlNodeSubStr = controlNodeId.toString().substr(controlNodeId.toString().length - 4)
+
     console.log('ButtonService::createControlNodeButtons(' + controlNodeId + ', ' + numButtons + ')')
     let buttons = []
     for (let i = 0; i < numButtons; i++) {
-        buttons.push(await createButton({ control_node: controlNodeId, button_number: i }))
+        buttons.push(await createButton(
+            {
+                button_number: i,
+                name: controlNodeSubStr + ' Button ' + i,
+                icon: 'default_button.svg',
+                description: 'Button created by adoption process for control node ' + controlNodeSubStr + ' with button number ' + i,
+                sound: 'default_button.ogg',
+                control_node: controlNodeId
+            }))
     }
     return buttons
 }
@@ -104,6 +130,7 @@ module.exports = {
     updateButton,
     deleteButton,
     verifyButtonsForControlNode,
-    createControlNodeButtons
+    createControlNodeButtons,
+    getAllControlNodeButtons
 
 }
