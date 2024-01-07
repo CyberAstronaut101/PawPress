@@ -20,3 +20,4 @@
 
 module.exports.Button = require('./button.model')
 module.exports.ControlNode = require('./control_node.model')
+module.exports.Audio = require('./audio.model')
