@@ -4,34 +4,46 @@ const logger = require('../config/logger');
 
 
 const getControlNode = async (nodeId) => {
-    console.log('ControlNodeService::getControlNode(' + nodeId + ')')
+    logger.verbose('ControlNodeService::getControlNode(' + nodeId + ')')
     return ControlNode.findById(nodeId)
 }
 
 const createControlNode = async (nodeData) => {
-    console.log('ControlNodeService::createControlNode()')
-    console.log(nodeData)
+    logger.verbose('ControlNodeService::createControlNode()')
+    logger.verbose(nodeData)
     return ControlNode.create(nodeData)
 }
 
+const getControlNodeIPMac = async (ip, mac) => {
+    logger.verbose('ControlNodeService::getControlNodeIPMac(' + ip + ', ' + mac + ')')
+    return ControlNode.findOne({ ip_address: ip, mac_address: mac })
+}
+
+
+const orphanControlNode = async (nodeId) => {
+    return "not implemented"
+    // Just needs to make adopted false, 
+}
+
 const adoptControlNode = async (nodeId) => {
-    console.log('ControlNodeService::adoptControlNode(' + nodeId + ')')
+    logger.verbose('ControlNodeService::adoptControlNode(' + nodeId + ')')
 
     // Check if there is a node with same ID and adopted == false
     const adoptableNodeExists = await ControlNode.exists({ _id: nodeId, adopted: false })
 
     if (!adoptableNodeExists) {
 
-        // there isnt a node that matches Id and is adopted == false.. check if it has already been adoped
+        // there isn't a node that matches Id and is adopted == false.. check if it has already been adopted
         const adoptedNodeExists = await ControlNode.exists({ _id: nodeId, adopted: true })
 
         // Node Already Exists and is adopted
         if (adoptedNodeExists) throw new ApiError(500, "Control Node Exists and Already Adopted")
+
         // Node Does not exist at all based on MongoDB _ID
         else throw new ApiError(500, "Request to adopt non-existent Control Node ID. Make sure Control Node has identified to server");
 
     } else {
-        console.log("Node is adoptable")
+        // Node exists and is adoptable, adopt
         logger.info("Node is adoptable")
         const node = await ControlNode.findByIdAndUpdate(nodeId, { adopted: true, adopted_at: Date.now() }, { new: true })
         logger.info("Node adopted successfully: ")
@@ -71,11 +83,12 @@ const getAllControlNodes = async () => {
 }
 
 
-
 module.exports = {
     getControlNode,
     createControlNode,
     checkForExistingNodes,
     getAllControlNodes,
-    adoptControlNode
+    adoptControlNode,
+    orphanControlNode,
+    getControlNodeIPMac
 }

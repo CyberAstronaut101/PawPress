@@ -17,8 +17,10 @@ const buttonSchema = mongoose.Schema(
         description: {
             type: String
         },
-        sound: {
-            type: String,
+        audio: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: 'Audio',
+            required: true
         },
         control_node: {
             type: mongoose.SchemaTypes.ObjectId,

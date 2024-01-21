@@ -127,6 +127,27 @@ const orphanNode = catchAsync(async (req, res) => {
     })
 })
 
+const manageControlNodeAndButtons = catchAsync(async (req, res) => {
+    logger.verbose("ControlNodeController::manageControlNodeAndButtons(" + req.params.id + ")")
+    // console.log(req.params)
+
+    // Load the control node
+    const controlNode = await controlNodeService.getControlNode(req.params.id)
+
+    // Based on the controlNode._id - load all button DB entries
+    const controlNodeButtons = await buttonService.getAllControlNodeButtons(req.params.id)
+    // const adoptedNode = await controlNodeService.orphanControlNode(req.params.id)
+
+    return res.status(httpStatus.OK).json({
+        message: getSuccessMessage('Fetched Control Node Buttons', 'Returned buttons for control node successfully'),
+        data: {
+            "controlNode": controlNode,
+            "buttons": controlNodeButtons
+        }
+    })
+})
+
+
 // TODO create node in DB
 // TODO Create buttons in DB, that link back to node and have button num
 
@@ -136,5 +157,6 @@ module.exports = {
     getControlNode,
     getControlNodes,
     adoptNode,
-    orphanNode
+    orphanNode,
+    manageControlNodeAndButtons
 }

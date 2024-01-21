@@ -6,6 +6,8 @@ const router = express.Router()
 const docsRoute = require('./docs.route')
 const buttonsRoute = require('./buttons.route')
 const nodesRoute = require('./control_nodes.route')
+const audiosRoute = require('./audio.route')
+const buttonListenerRoute = require('./button_listener.route')
 
 // Default routes loaded in all enviornments
 const defaultRoutes = [
@@ -16,6 +18,14 @@ const defaultRoutes = [
     {
         path: '/controlNodes',
         route: nodesRoute
+    },
+    {
+        path: '/audio',
+        route: audiosRoute
+    },
+    {
+        path: '/buttonListener',
+        route: buttonListenerRoute
     }
 ]
 

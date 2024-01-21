@@ -17,12 +17,14 @@ router.route('/pressed/')
     .post(buttonController.pressButton)
 
 router.route('/:id')
-    .post(
+    .get(validate(buttonValidation.validIdParam), buttonController.getButton)
+    .put(
         validate(buttonValidation.validIdParam),
-        validate(buttonValidation.updateButton),
+        // validate(buttonValidation.updateButton),
         buttonController.updateButton
     )
 
+router.ws('/buttonListener', buttonController.subscribeToButtonPressWebsocket)
 
 // Save this for modifying the specific buttons
 // router.route('/:id')

@@ -1,32 +1,36 @@
 const { Button } = require('../models')
 const { ControlNode } = require('../models')
+const { Audio } = require('../models')
 const ApiError = require('../utils/ApiError')
+const logger = require('../config/logger')
 
 //# CRUD OPERATIONS
 
 const createButton = async (buttonData) => {
-    console.log('ButtonService::createButton()')
-    console.log(buttonData)
+    logger.debug('ButtonService::createButton()')
+    logger.debug(buttonData)
     return Button.create(buttonData)
 }
 
 const getButton = async (buttonId) => {
-    console.log('ButtonService::getButton(' + buttonId + ')')
+    logger.debug('ButtonService::getButton(' + buttonId + ')')
     return Button.findById(buttonId)
 }
 
 const getButtons = async () => {
-    console.log('ButtonService::getButtons()')
+    logger.debug('ButtonService::getButtons()')
     return Button.find({})
 }
 
 const updateButton = async (buttonId, buttonData) => {
-    console.log('ButtonService::updateButton(' + buttonId + ')')
+    logger.debug('ButtonService::updateButton(' + buttonId + ')')
+    console.log("Button Update Data:")
+    console.log(buttonData)
     return Button.findByIdAndUpdate(buttonId, buttonData, { new: true })
 }
 
 const deleteButton = async (buttonId) => {
-    console.log('ButtonService::deleteButton(' + buttonId + ')')
+    logger.debug('ButtonService::deleteButton(' + buttonId + ')')
     return Button.findByIdAndDelete(buttonId)
 }
 
@@ -73,13 +77,13 @@ const verifyButtonsForControlNode = async (controlNodeId) => {
 }
 
 const getButtonByControlNodeAndButtonNumber = async (controlNodeId, buttonNumber) => {
-    console.log('ButtonService::getButtonByControlNodeAndButtonNumber(' + controlNodeId + ', ' + buttonNumber + ')')
-    return Button.findOne({ control_node: controlNodeId, button_number: buttonNumber })
+    logger.debug('ButtonService::getButtonByControlNodeAndButtonNumber(' + controlNodeId + ', ' + buttonNumber + ')')
+    return Button.findOne({ control_node: controlNodeId, button_number: buttonNumber }).populate('audio')
 }
 
 const getAllControlNodeButtons = async (controlNodeId) => {
-    console.log('ButtonService::getAllControlNodeButtons(' + controlNodeId + ')')
-    return Button.find({ control_node: controlNodeId })
+    logger.verbose('ButtonService::getAllControlNodeButtons(' + controlNodeId + ')')
+    return Button.find({ control_node: controlNodeId }).populate('audio')
 }
 
 /**
@@ -93,6 +97,9 @@ const createControlNodeButtons = async (controlNodeId, numButtons) => {
     // ! This function is only called from the adoption process for parent control nodes
     // ! Adjust this to contain general logic for creating default values for remainder of customizable fields
 
+    // Get the default audio clip objectId
+    const defaultAudioClip = await Audio.findOne({ name: 'Default' })
+
     // Last 4 characters of the controlNodeId
     let controlNodeSubStr = controlNodeId.toString().substr(controlNodeId.toString().length - 4)
 
@@ -105,7 +112,7 @@ const createControlNodeButtons = async (controlNodeId, numButtons) => {
                 name: controlNodeSubStr + ' Button ' + i,
                 icon: 'default_button.svg',
                 description: 'Button created by adoption process for control node ' + controlNodeSubStr + ' with button number ' + i,
-                sound: 'default_button.ogg',
+                audio: defaultAudioClip._id,
                 control_node: controlNodeId
             }))
     }
@@ -131,6 +138,7 @@ module.exports = {
     deleteButton,
     verifyButtonsForControlNode,
     createControlNodeButtons,
-    getAllControlNodeButtons
+    getAllControlNodeButtons,
+    getButtonByControlNodeAndButtonNumber
 
 }

@@ -1,4 +1,6 @@
 var express = require('express')
+var expressWs = require('express-ws')(express());
+
 var cookieParser = require('cookie-parser')
 require('dotenv').config()
 const morgan = require('morgan')
@@ -8,7 +10,9 @@ const logger = require('./config/logger')
 const passport = require('passport')
 const { jwtStrategy, jwtShopStrategy } = require('./config/passport')
 
-var app = express()
+
+
+var app = expressWs.app
 
 
 /*********  Setup API Routes  **********/
@@ -39,6 +43,8 @@ passport.use('jwt', jwtStrategy) // uses the User collection
 
 // Setup Static directory for serving media
 app.use('/media', express.static('media'))
+
+// Setup Multer for saving files to 
 
 /*--------  Endpoints  --------*/
 

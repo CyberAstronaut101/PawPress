@@ -3,3 +3,4 @@ module.exports.tokenService = require('./token.service')
 module.exports.userService = require('./user.service')
 
 module.exports.controlNodeService = require('./control_node.service')
+module.exports.audioService = require('./audio.service')
