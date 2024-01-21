@@ -8,6 +8,8 @@ const logger = require('./config/logger');
 // const platformStatsService = require('./services/stats.service');
 // const expressScheduler = require('./express-scheduler');
 
+const audioService = require('./services/audio.service');
+
 
 let server;
 
@@ -15,6 +17,11 @@ mongoose.connect(config.mongoose.url, config.mongoose.options).then(() => {
     logger.info('Connected to MongoDB');
     server = app.listen(config.port, () => {
         logger.info(`Express API Listening to port ${config.port}`);
+
+        // Other Startup Routines
+
+        //* Always make sure that the default audio clip is in the database
+        audioService.verifyDefaultAudioExists();
 
         // platformStatsService.validateStatsDatabase();
 
