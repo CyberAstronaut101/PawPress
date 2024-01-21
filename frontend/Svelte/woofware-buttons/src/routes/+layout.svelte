@@ -23,7 +23,7 @@
 				<strong class="text-xl uppercase">WoofWare</strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a class="btn btn-sm variant-ghost-surface" href="/"> Dashboard </a>
+				<a class="btn btn-sm variant-ghost-surface" href="/streamer"> Streamer </a>
 
 				<a class="btn btn-sm variant-ghost-surface" href="/button-management">
 					Button Management
