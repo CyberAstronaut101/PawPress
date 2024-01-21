@@ -33,6 +33,7 @@ const upload = multer({
     fileFilter: function (req, file, cb) {
         // Make sure extension is correct
         var ext = path.extname(file.originalname);
+        logger.verbose("Multer Upload File: " + file.originalname + " Extension: " + ext)
         if (ext !== '.wav' && ext !== '.mp3' && ext !== '.ogg') {
             return cb(new Error('Only audio files are allowed'))
         }
@@ -80,10 +81,12 @@ const uploadAudioClip = catchAsync(async (req, res) => {
 
             if (err instanceof multer.MulterError) {
                 // A Multer error occurred when uploading.
+                logger.error(err)
                 return res.status(500).json({
                     message: getErrorMessage('Multer Upload Error', err.message)
                 })
             } else if (err) {
+                logger.error(err)
                 // An unknown error occurred when uploading.
                 return res.status(500).json({
                     message: getErrorMessage('Unknown Error During File Upload', err.message)
@@ -92,6 +95,7 @@ const uploadAudioClip = catchAsync(async (req, res) => {
 
             // If no file was sent
             if (!req.file) {
+                logger.error("No file sent in the request");
                 return res.status(400).json({
                     message: getErrorMessage('No file uploaded', 'No file sent in the request')
                 })
@@ -104,12 +108,14 @@ const uploadAudioClip = catchAsync(async (req, res) => {
 
             // Create a new audio clip object
             const audioClip = {
-                "name": req.body.audioClip,
+                "name": req.body.name,
                 "file": filename
             }
 
             try {
                 const newAudioClip = await audioService.createAudio(audioClip)
+
+                console.log("AFTER UPLOAD AUDIO CLIP DB ITEM")
 
                 // File uploaded successfully
                 res.status(httpStatus.OK).json({

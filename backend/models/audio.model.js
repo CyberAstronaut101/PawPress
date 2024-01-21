@@ -6,6 +6,10 @@ const audioSchema = mongoose.Schema(
         name: {
             type: String,
             required: true,
+            unique: true
+        },
+        description: {
+            type: String
         },
         file: {
             type: String,
