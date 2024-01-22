@@ -2,6 +2,7 @@
 
 <script>
 	import { browser } from '$app/environment';
+	import { onDestroy } from 'svelte';
 
 	const mediaApiUrl = import.meta.env.VITE_MEDIA_URL;
 
@@ -38,6 +39,12 @@
 
 		socket.addEventListener('error', (event) => {
 			console.log('Error from server ', event);
+		});
+
+		onDestroy(() => {
+			if (socket && socket.readyState == 1) {
+				socket.close();
+			}
 		});
 	}
 
