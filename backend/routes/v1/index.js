@@ -7,9 +7,8 @@ const docsRoute = require('./docs.route')
 const buttonsRoute = require('./buttons.route')
 const nodesRoute = require('./control_nodes.route')
 const audiosRoute = require('./audio.route')
-const buttonListenerRoute = require('./button_listener.route')
 
-// Default routes loaded in all enviornments
+// Default routes loaded in all envs
 const defaultRoutes = [
     {
         path: '/buttons',
@@ -22,10 +21,6 @@ const defaultRoutes = [
     {
         path: '/audio',
         route: audiosRoute
-    },
-    {
-        path: '/buttonListener',
-        route: buttonListenerRoute
     }
 ]
 
