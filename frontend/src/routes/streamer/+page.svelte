@@ -6,12 +6,30 @@
 
 	const mediaApiUrl = import.meta.env.VITE_MEDIA_URL;
 
+	/**
+	 * @type {any[]}
+	 */
+	let audioQueue = [];
+	let isAudioPlaying = false;
 	let audio = null;
 
 	/**
 	 * @type {any[]}
 	 */
 	let messageLog = [];
+
+	async function playNextAudio() {
+		if (audioQueue.length > 0 && !isAudioPlaying) {
+			isAudioPlaying = true;
+			const audioSrc = audioQueue.shift();
+			const audio = new Audio(mediaApiUrl + '/' + audioSrc);
+			await audio.play();
+			audio.onended = () => {
+				isAudioPlaying = false;
+				playNextAudio();
+			};
+		}
+	}
 
 	// Open the WebSocket connection with the buttonListener ws endpoint
 	if (browser) {
@@ -26,13 +44,15 @@
 			// Cast event.data to object
 			let eventData = JSON.parse(event.data);
 
-			console.log('Audio File');
-			console.log(eventData.audio.file);
+			// console.log('Audio File');
+			// console.log(eventData.audio.file);
 			// TODO Play the audio file
-			audio = new Audio(mediaApiUrl + '/' + eventData.audio.file);
+			// audio = new Audio(mediaApiUrl + '/' + eventData.audio.file);
 
-			console.log('Playing Audio');
-			audio.play();
+			audioQueue.push(eventData.audio.file);
+			playNextAudio();
+			// console.log('Playing Audio');
+			// audio.play();
 			//
 			messageLog = [event.data, ...messageLog];
 		});
